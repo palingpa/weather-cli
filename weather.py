@@ -32,12 +32,13 @@ def fetch(lat: float, lon: float) -> dict:
 
 def format_report(data: dict) -> str:
     cur = data.get("current") or {}
-    return (
-        f"lat={data.get('latitude')} lon={data.get('longitude')}\n"
-        f"temp_c={cur.get('temperature_2m')}\n"
-        f"wind_kmh={cur.get('wind_speed_10m')}\n"
-        f"code={cur.get('weather_code')}"
-    )
+    lines = [
+        f"lat={data.get('latitude')} lon={data.get('longitude')}",
+        f"temp_c={cur.get('temperature_2m')}",
+        f"wind_kmh={cur.get('wind_speed_10m')}",
+        f"code={cur.get('weather_code')}",
+    ]
+    return "\n".join(lines)
 
 
 def main():
