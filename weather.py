@@ -46,7 +46,15 @@ def main():
     p.add_argument("--lat", type=float, default=35.68)
     p.add_argument("--lon", type=float, default=139.69)
     p.add_argument("--mock", action="store_true", help="Use canned data")
+    p.add_argument("--city", choices=["tokyo", "nyc", "london"], help="Preset coords")
     args = p.parse_args()
+    presets = {
+        "tokyo": (35.68, 139.69),
+        "nyc": (40.71, -74.01),
+        "london": (51.51, -0.13),
+    }
+    if args.city:
+        args.lat, args.lon = presets[args.city]
     data = MOCK if args.mock else fetch(args.lat, args.lon)
     print(format_report(data))
 
