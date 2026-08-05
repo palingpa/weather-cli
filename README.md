@@ -10,3 +10,5 @@ python weather.py --mock
 python weather.py --lat 40.71 --lon -74.01
 ```
 
+
+Preset cities: `tokyo`, `nyc`, `london` via `--city`.
