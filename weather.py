@@ -26,7 +26,7 @@ def fetch(lat: float, lon: float) -> dict:
         }
     )
     url = f"https://api.open-meteo.com/v1/forecast?{qs}"
-    with urllib.request.urlopen(url, timeout=10) as resp:
+    with urllib.request.urlopen(url, timeout=15) as resp:
         return json.load(resp)
 
 
